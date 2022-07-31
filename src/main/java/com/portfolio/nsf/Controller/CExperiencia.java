@@ -36,10 +36,12 @@ public class CExperiencia {
         List<Experiencia> list = servExp.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
-        if(!servExp.existsById(id))
+        if(!servExp.existsById(id)){
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
         Experiencia experiencia = servExp.getOne(id).get();
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
@@ -65,12 +67,22 @@ public class CExperiencia {
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){
-        if(StringUtils.isBlank(dtoexp.getNombreE()))
+        if(StringUtils.isBlank(dtoexp.getNombreE())){
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (servExp.existsByNombreE(dtoexp.getNombreE()))
+        }
+        if (servExp.existsByNombreE(dtoexp.getNombreE())){
             return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
+        }
         
-        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE(), dtoexp.getPositionE(), dtoexp.getModoE(), dtoexp.getStartE(), dtoexp.getEndE(),dtoexp.getWebE()); // se agrega aca 
+        Experiencia experiencia = new Experiencia(
+                dtoexp.getNombreE(), 
+                dtoexp.getDescripcionE(), 
+                dtoexp.getPositionE(), 
+                dtoexp.getModoE(), 
+                dtoexp.getStartE(), 
+                dtoexp.getEndE(), 
+                dtoexp.getWebE());  // se agrega aca 
+        
         servExp.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia Agregada"), HttpStatus.OK);
     }
@@ -84,6 +96,7 @@ public class CExperiencia {
         
         if(servExp.existsByNombreE(dtoexp.getNombreE()) && servExp.getByNombreE(dtoexp.getNombreE()).get().getId() !=id)
             return  new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        
         if(StringUtils.isBlank(dtoexp.getNombreE())) 
             return new ResponseEntity(new Mensaje("El nombre es obigatorio"), HttpStatus.BAD_REQUEST);
         
