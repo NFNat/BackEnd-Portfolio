@@ -81,7 +81,8 @@ public class CExperiencia {
                 dtoexp.getModoE(), 
                 dtoexp.getStartE(), 
                 dtoexp.getEndE(), 
-                dtoexp.getWebE());  // se agrega aca 
+                dtoexp.getWebE(),  // se agrega aca 
+                dtoexp.getImgE());
         
         servExp.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia Agregada"), HttpStatus.OK);
@@ -108,6 +109,7 @@ public class CExperiencia {
         experiencia.setStartE(dtoexp.getStartE());
         experiencia.setEndE(dtoexp.getEndE());
         experiencia.setWebE(dtoexp.getWebE());
+        experiencia.setImgE(dtoexp.getImgE());
         
         
         servExp.save(experiencia);

@@ -1,37 +1,44 @@
 
-package com.portfolio.nsf.Entity;
+package com.portfolio.nsf.Dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 
-@Entity
-public class Experiencia {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class dtoExperiencia {
+    @NotBlank
     private String nombreE;
+    
+    @NotBlank
     private String descripcionE;
     
-    //agregados 
+    //agregados
+    @NotBlank
     private String positionE;
+    
+    @NotBlank
     private String modoE;
+            
+    @NotBlank
     private String startE;
+            
+    @NotBlank
     private String endE;
+            
+    @NotBlank
     private String webE;
+    
+    @NotBlank
     private String imgE;
-    
-    
-    
-    
 
-    public Experiencia() {
+
+
+
+// Generar constructores, getters and setters
+
+    public dtoExperiencia() {
     }
 
-    public Experiencia(String nombreE, String descripcionE, String positionE, String modoE, String startE, String endE, String webE,String imgE) {
+    public dtoExperiencia(String nombreE, String descripcionE, String positionE, String modoE, String startE, String endE, String webE, String imgE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         
@@ -41,6 +48,32 @@ public class Experiencia {
         this.endE = endE;
         this.webE = webE;
         this.imgE = imgE;
+    }
+
+    public String getPositionE() {
+        return positionE;
+    }
+
+    public void setPositionE(String positionE) {
+        this.positionE = positionE;
+    }
+
+    public String getNombreE() {
+        return nombreE;
+    }
+
+    public void setNombreE(String nombreE) {
+        this.nombreE = nombreE;
+    }
+
+    
+    
+    public String getDescripcionE() {
+        return descripcionE;
+    }
+
+    public void setDescripcionE(String descripcionE) {
+        this.descripcionE = descripcionE;
     }
 
     public String getModoE() {
@@ -75,40 +108,6 @@ public class Experiencia {
         this.webE = webE;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombreE() {
-        return nombreE;
-    }
-
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
-    }
-
-    public String getDescripcionE() {
-        return descripcionE;
-    }
-
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
-    }
-
-    
-    
-    public String getPositionE() {
-        return positionE;
-    }
-
-    public void setPositionE(String positionE) {
-        this.positionE = positionE;
-    }
-
     public String getImgE() {
         return imgE;
     }
@@ -116,6 +115,8 @@ public class Experiencia {
     public void setImgE(String imgE) {
         this.imgE = imgE;
     }
+
+    
     
     
     
