@@ -51,7 +51,7 @@ public class CAbout {
     
     
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("Id") int id){
+    public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!servAbout.existsById(id)){
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
         }

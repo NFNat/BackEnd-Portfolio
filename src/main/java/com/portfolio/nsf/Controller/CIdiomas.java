@@ -48,7 +48,7 @@ public class CIdiomas {
     
     
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("Id") int id){
+    public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!servIdi.existsById(id)){
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
         }
