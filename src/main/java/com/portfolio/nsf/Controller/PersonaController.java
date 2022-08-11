@@ -61,10 +61,7 @@ public class PersonaController {
         persona.setPosicion(nuevoPosicion);
         persona.setScope(nuevoScope);
         persona.setCiudad(nuevoCiudad);
-        persona.setAbout(nuevoAbout);
-        
-        
-        
+        persona.setAbout(nuevoAbout);  
         
         ipersonaService.savePersona(persona);
         return persona;

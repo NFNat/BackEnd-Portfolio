@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface RAbout extends JpaRepository<About, Integer> {
     
     public Optional <About> findByAbout(String about);
-    public boolean existsByAbout(String about);
+    public Boolean existsByAbout(String about);
     
     
 }
